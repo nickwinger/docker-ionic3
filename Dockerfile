@@ -73,8 +73,10 @@ RUN cordova telemetry off
 RUN wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip && \
     mkdir /opt/gradle && \
     unzip -d /opt/gradle gradle-4.10.3-bin.zip && \
-    export PATH=$PATH:/opt/gradle/gradle-4.10.3/bin
-    export GRADLE_HOME=/opt/gradle/gradle-4.10.3/bin
+    export PATH=$PATH:/opt/gradle/gradle-4.10.3/bin    
+
+ENV GRADLE_HOME=/opt/gradle/gradle-4.10.3
+ENV PATH=$PATH:$GRADLE_HOME/bin
 
 # Install docker-gc (garbage collector)
 RUN apt-get update
