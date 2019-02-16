@@ -12,14 +12,14 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 
 ENV LANG en_US.UTF-8 
 
-# Install git, curl, node, ionic, yarn, Chrome
+# Install git, curl, node, yarn, Chrome
 RUN apt-get update &&  \
     apt-get install -y wget git unzip curl ruby ruby-dev build-essential && \
     curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     
     apt-get update &&  \
     apt-get install -y nodejs && \
-    npm install -g cordova@"8.0.0" ionic@"3.19.0" yarn@"1.3.2" && \
+    npm install -g yarn@"1.3.2" && \
     npm cache clear --force && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg --unpack google-chrome-stable_current_amd64.deb && \
@@ -70,12 +70,12 @@ RUN yes Y | ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;26.0.2" "platforms
 RUN cordova telemetry off
 
 # Install Gradle
-RUN wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip && \
+RUN wget https://services.gradle.org/distributions/gradle-4.3.1-bin.zip && \
     mkdir /opt/gradle && \
-    unzip -d /opt/gradle gradle-4.10.3-bin.zip && \
-    export PATH=$PATH:/opt/gradle/gradle-4.10.3/bin    
+    unzip -d /opt/gradle gradle-4.3.1-bin.zip && \
+    export PATH=$PATH:/opt/gradle/gradle-4.3.1/bin    
 
-ENV GRADLE_HOME=/opt/gradle/gradle-4.10.3
+ENV GRADLE_HOME=/opt/gradle/gradle-4.3.1
 ENV PATH=$PATH:$GRADLE_HOME/bin
 
 # Install docker-gc (garbage collector)
