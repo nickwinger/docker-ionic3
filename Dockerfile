@@ -67,7 +67,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 # Install Android SDK
 RUN yes Y | ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;26.0.2" "platforms;android-26" "platform-tools"
-RUN cordova telemetry off
+
 
 # Install Gradle
 RUN wget https://services.gradle.org/distributions/gradle-4.3.1-bin.zip && \
