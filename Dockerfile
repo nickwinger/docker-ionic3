@@ -70,12 +70,12 @@ RUN yes Y | ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;26.0.2" "platforms
 
 
 # Install Gradle
-RUN wget https://services.gradle.org/distributions/gradle-4.3.1-bin.zip && \
+RUN wget https://services.gradle.org/distributions/gradle-4.1-bin.zip && \
     mkdir /opt/gradle && \
-    unzip -d /opt/gradle gradle-4.3.1-bin.zip && \
-    export PATH=$PATH:/opt/gradle/gradle-4.3.1/bin    
+    unzip -d /opt/gradle gradle-4.1-bin.zip && \
+    export PATH=$PATH:/opt/gradle/gradle-4.1/bin    
 
-ENV GRADLE_HOME=/opt/gradle/gradle-4.3.1
+ENV GRADLE_HOME=/opt/gradle/gradle-4.1
 ENV PATH=$PATH:$GRADLE_HOME/bin
 
 # Install docker-gc (garbage collector)
